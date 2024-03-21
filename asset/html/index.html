@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="popup-container">
+            <div class="popup-main">
+                <label for="field-name">Name</label>
+                <input type="text" id="field-name" pattern="^(.*[A-Za-z\d])$" >
+                <label for="field-phone">Phone</label>
+                <input type="text" id="field-number" pattern="^(.*[\d]){10,}$" maxlength="11" required>
+                <label for="field-mail">Email</label >
+                <input type="text" id="field-email" pattern="^(.*[.])$" >
+                <button onclick="NewContacts()" >Create</button>
+            </div>
+        </div>
+        <div class="popup-container-Edit">
+            <div class="popup-main-Edit">
+                <label for="field-name-Edit">Name</label>
+                <input type="text" id="field-name-Edit" pattern="^(.*[A-Za-z\d])$" >
+                <label for="field-phone-Edit">Phone</label>
+                <input type="text" id="field-number-Edit" pattern="^(.*[\d]){10,}$" maxlength="11" required>
+                <label for="field-mail-Edit">Email</label >
+                <input type="text" id="field-email-Edit" pattern="^(.*[.])$" >
+                <button onclick="Change()" >Change</button>
+            </div>
+        </div>
+    <div class="header">
+        <button id="CreateArticle"> Create </button>
+    </div>
+    <div class="cards">
+        <div class="article">
+            <div class="name">
+               <img class="icon" src="../img/icon/name.svg" alt="">
+               <span id="name"> ABCD </span>
+            </div>
+            <div class="numberCall">
+                <img class="icon" src="../img/icon/phone.svg" alt="">
+                <span  id="number"> 000000000 </span>
+            </div>
+            <div class="Email">
+                <img class="icon" src="../img/icon/email.svg" alt="">
+                <span  id="email"> abc@gmail </span>
+            </div>
+            <div class="footer">
+                <img id="Edit" src="../img/icon/pencil.svg" alt="">
+                <img id="Delete" src="../img/icon/bin.svg" alt="">
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script src="../js/main.js"></script>
+</html>
