@@ -80,20 +80,20 @@ function Render() {
     let elements = Contacts.map( (items, index)=> {
         return `<div class="article">
         <div class="name">
-           <img class="icon" src="../img/icon/name.svg" alt="">
+           <img class="icon" src="./asset/img/icon/name.svg" alt="">
            <span id="name"> ${items.name} </span>
         </div>
         <div class="numberCall">
-            <img class="icon" src="../img/icon/phone.svg" alt="">
+            <img class="icon" src="./asset/img/icon/phone.svg" alt="">
             <span  id="number"> ${items.number} </span>
         </div>
         <div class="Email">
-            <img class="icon" src="../img/icon/email.svg" alt="">
+            <img class="icon" src="./asset/img/icon/email.svg" alt="">
             <span  id="email"> ${items.email} </span>
         </div>
         <div class="footer">
-            <img id="Edit" onclick="EditArticle( ${index} )" src="../img/icon/pencil.svg" alt="">
-            <img id="Delete" onclick="DeleteArticle(this, ${index})" src="../img/icon/bin.svg" alt="">
+            <img id="Edit" onclick="EditArticle( ${index} )" src="./asset/img/icon/pencil.svg" alt="">
+            <img id="Delete" onclick="DeleteArticle(this, ${index})" src="./asset/img/icon/bin.svg" alt="">
         </div>
     </div>`
     })
