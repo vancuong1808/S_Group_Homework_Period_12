@@ -27,6 +27,11 @@ let Edit = document.getElementById("Edit");
 let ContactIndex = {
     index : 1
 };
+let Editor = {
+    newNameEdit : document.querySelector("#field-name-Edit"), 
+    newNumberEdit : document.querySelector("#field-number-Edit"), 
+    newEmailEdit : document.querySelector("#field-email-Edit")
+}
 
 
 let newName = document.querySelector("#field-name");
@@ -65,47 +70,6 @@ checkEmail = newEmail.addEventListener("input", ()=>{
 
 function CheckInput() {
     if( checkName == true && checkNumber == true && checkEmail == true ) {
-        return true
-    } else {
-        return false
-    }
-}
-
-let newNameEdit = document.querySelector("#field-name-Edit");
-let newNumberEdit = document.querySelector("#field-number-Edit");
-let newEmailEdit = document.querySelector("#field-email-Edit");
-
-let checkNameEdit = false;
-let checkNumberEdit = false;
-let checkEmailEdit = false;
-
-checkNameEdit = newNameEdit.addEventListener("input", ()=>{
-    if( newNameEdit.checkValidity() &&newNameEdit != "" ) {
-        checkNameEdit = true
-    } else {
-        checkNameEdit = false
-    }
-    return checkNameEdit
-})
-checkNumberEdit = newNumberEdit.addEventListener("input", ()=>{
-    if( newNumberEdit.checkValidity() ) {
-        checkNumberEdit = true
-    } else {
-        checkNumberEdit = false
-    }
-    return checkNumberEdit
-})
-checkEmailEdit = newEmailEdit.addEventListener("input", ()=>{
-    if( !newEmailEdit.checkValidity() && newEmailEdit.value.includes( Gmail ) && newEmailEdit.value != "" && newEmailEdit.value.split('').findIndex(( char ) => { return char === "." }) !== 0 ) {
-        checkEmailEdit = true
-    } else {
-        checkEmailEdit = false
-    }
-    return checkEmailEdit
-})
-
-function CheckInputEdit() {
-    if( checkNameEdit == true && checkNumberEdit == true && checkEmailEdit == true ) {
         return true
     } else {
         return false
@@ -200,13 +164,75 @@ function EditArticle( index ) {
     popupEdit.querySelector("#field-name-Edit").value = Contacts[index].name;
     popupEdit.querySelector("#field-number-Edit").value = Contacts[index].number;
     popupEdit.querySelector("#field-email-Edit").value = Contacts[index].email;
+    Editor.newNameEdit = document.querySelector("#field-name-Edit");
+    Editor.newNumberEdit = document.querySelector("#field-number-Edit");
+    Editor.newEmailEdit = document.querySelector("#field-email-Edit");
+    console.log( Editor.newNameEdit.value, Editor.newNumberEdit.value, Editor.newEmailEdit.value )
     popupContainersEdit.classList.toggle('active')
     ContactIndex.index = index
 }
+
+// console.log( Editor.newNameEdit.value, Editor.newNumberEdit.value, Editor.newEmailEdit.value )
+let checkNameEdit = false;
+let checkNumberEdit = false;
+let checkEmailEdit = false;
+
+checkNameEdit = Editor.newNameEdit.addEventListener("input", ()=>{
+    console.log( Editor.newNameEdit.value)
+    if( Editor.newNameEdit.checkValidity() && Editor.newNameEdit.value != "" ) {
+        checkNameEdit = true
+    } else {
+        checkNameEdit = false
+    }
+    return checkNameEdit
+})
+checkNumberEdit = Editor.newNumberEdit.addEventListener("input", ()=>{
+    console.log( Editor.newNumberEdit.value )
+    if( Editor.newNumberEdit.checkValidity() ) {
+        checkNumberEdit = true
+    } else {
+        checkNumberEdit = false
+    }
+    return checkNumberEdit
+})
+checkEmailEdit = Editor.newEmailEdit.addEventListener("input", ()=>{
+    console.log( Editor.newEmailEdit.value )
+    if( !Editor.newEmailEdit.checkValidity() && Editor.newEmailEdit.value.includes( Gmail ) && Editor.newEmailEdit.value != "" && Editor.newEmailEdit.value.split('').findIndex(( char ) => { return char === "." }) !== 0 ) {
+        checkEmailEdit = true
+    } else {
+        checkEmailEdit = false
+    }
+    return checkEmailEdit
+})
+
+function CheckInputEdit() {
+    if( Editor.newNameEdit.checkValidity() && Editor.newNameEdit.value != "" ) {
+        checkNameEdit = true
+    } else {
+        checkNameEdit = false
+    }
+    if( Editor.newNumberEdit.checkValidity() ) {
+        checkNumberEdit = true
+    } else {
+        checkNumberEdit = false
+    }
+    if( !Editor.newEmailEdit.checkValidity() && Editor.newEmailEdit.value.includes( Gmail ) && Editor.newEmailEdit.value != "" && Editor.newEmailEdit.value.split('').findIndex(( char ) => { return char === "." }) !== 0 ) {
+        checkEmailEdit = true
+    } else {
+        checkEmailEdit = false
+    }
+    if( checkNameEdit == true && checkNumberEdit == true && checkEmailEdit == true ) {
+        return true
+    } else {
+        return false
+    }
+}
+
 function Change() {
     let changeOldName = document.querySelector("#field-name-Edit").value;
     let changeOldNumber = document.querySelector("#field-number-Edit").value;
     let changeOldEmail = document.querySelector("#field-email-Edit").value;
+    console.log( Editor.newNameEdit.value, Editor.newNumberEdit.value , Editor.newEmailEdit.value )
     console.log( checkNameEdit, checkNumberEdit, checkEmailEdit )
     console.log( ContactIndex.index )
         if( CheckInputEdit() ) {

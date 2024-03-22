@@ -1,13 +1,22 @@
 body {
     margin: 0px;
 }
+.container {
+    background-image: url(../img/icon/BackGround.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
 .header {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
-    height: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 60px;
     align-items: center;
+    padding: 10px 50px;
     margin-bottom: 20px;
+    box-sizing: border-box;
 }
 #CreateArticle {
     height: 30px;
@@ -24,16 +33,18 @@ body {
 .cards {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: start;
 }
 .article {
     display: flex;
     flex-flow: column wrap;
     width: fit-content;
     height: fit-content;
+    background-color: rgba(255, 255, 255, 0.5);
     border: 2px solid #000000;
     border-radius: 20px;
     padding: 20px 20px;
+    margin: 20px 20px;
     box-sizing: border-box;
 }
 .name {
