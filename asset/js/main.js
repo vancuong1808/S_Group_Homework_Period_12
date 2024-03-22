@@ -37,7 +37,7 @@ let Editor = {
 let newName = document.querySelector("#field-name");
 let newNumber = document.querySelector("#field-number");
 let newEmail = document.querySelector("#field-email");
-let Gmail = "@gmail.com"
+let Gmail = "@"
 
 let checkName = false;
 let checkNumber = false;
